@@ -332,3 +332,20 @@ footer p {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(255, 64, 129, 0.4);
 }
+
+.favorite-btn {
+  background: #eee;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+}
+
+.favorite-btn.liked {
+  background: red;
+  color: white;
+}

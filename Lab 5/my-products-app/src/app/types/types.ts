@@ -12,6 +12,7 @@ export interface Product {
   rating: number;
   images: string[];
   likes: number;
-  categoryId: number; 
+  isLiked?: boolean;
+  categoryId: number;
   kaspiLink: string;
 }

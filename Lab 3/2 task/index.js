@@ -8,11 +8,12 @@ let tasks = [];
 btn.addEventListener("click", () => {
   const trimmedText = input.value.trim();
 
-  if (trimmedText == "") return;
+  if (trimmedText == "") return alert("Your text is empty");
 
   tasks.push({ id: currId++, text: input.value, done: false });
 
   render();
+  input.value = "";
 });
 
 render();

@@ -38,10 +38,10 @@ import { Product } from '../types/types';
         
         <div class="share-buttons">
           <a [href]="getWhatsappShareLink()" target="_blank" class="share-btn whatsapp">
-            <i class="fab fa-whatsapp"></i>
+            <i class="fab fa-whatsapp"></i> WhatsApp
           </a>
           <a [href]="getTelegramShareLink()" target="_blank" class="share-btn telegram">
-            <i class="fab fa-telegram-plane"></i>
+            <i class="fab fa-telegram-plane"></i> Telegram
           </a>
           <a [href]="product.kaspiLink" target="_blank" class="share-btn kaspi">
             <i class="fas fa-shopping-cart"></i>
@@ -55,8 +55,13 @@ import { Product } from '../types/types';
 export class ProductItemComponent {
   @Input() product!: Product;
   @Output() remove = new EventEmitter<number>();
-  @Output() liked = new EventEmitter<number>();
-  
+  @Output() liked = new EventEmitter<number>(); // 🔥 Передаём событие в родителя
+
+  onLike() {
+    this.product.isLiked = !this.product.isLiked; // 🔥 Переключаем лайк
+    console.log("Лайк изменён:", this.product.isLiked); // 🔥 Проверяем в консоли
+    this.liked.emit(this.product.id); // 🔥 Передаём ID товара в родителя
+  }
   currentImageIndex = 0;
   
   get currentImage(): string {
@@ -71,9 +76,6 @@ export class ProductItemComponent {
     this.currentImageIndex = (this.currentImageIndex + 1) % this.product.images.length;
   }
   
-  onLike() {
-    this.liked.emit(this.product.id);
-  }
   
   onRemove() {
     this.remove.emit(this.product.id);

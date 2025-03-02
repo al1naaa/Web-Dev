@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+interface product{
+  name:string;
+  description:string;
+  rating: number;
+  
+}
 @Component({
   selector: 'app-products',
   standalone: true,

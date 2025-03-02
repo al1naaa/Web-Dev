@@ -33,6 +33,11 @@ export class ProductsComponent {
     this.selectedCategory = category;
   }
 
+  toggleFavorite(product: Product) {
+    product.isLiked = !product.isLiked; // 🔥 Переключаем лайк
+    console.log("Лайк изменён:", product.name, "Статус:", product.isLiked); // Проверяем в консоли
+  }
+
   prevImage(product: Product) {
     this.slidingDirection[product.id] = 'right';
     if (this.currentImageIndex[product.id] > 0) {

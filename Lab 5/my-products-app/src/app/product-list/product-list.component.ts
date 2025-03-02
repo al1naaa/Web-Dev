@@ -29,7 +29,8 @@ export class ProductListComponent {
   onLikeProduct(productId: number) {
     const product = this.products.find(p => p.id === productId);
     if (product) {
-      product.likes++;
+      product.isLiked = !product.isLiked;
+      console.log("Продукт лайкнут:", product.name, "Статус:", product.isLiked); // 🔥 Проверяем
     }
-  }
+  }  
 }

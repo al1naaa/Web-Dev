@@ -56,6 +56,11 @@
             <button (click)="viewOnKaspi(product.kaspiLink)" class="primary-btn">
               Купить
             </button>
+
+  <button (click)="toggleFavorite(product)" class="favorite-btn" [class.liked]="product.isLiked">
+    <i class="fas fa-heart"></i>
+    {{ product.isLiked ? "" : "" }}
+  </button>
             <div class="share-buttons">
               <button (click)="shareOnTelegram(product)" class="icon-btn telegram" title="Поделиться в Telegram">
                 <i class="fab fa-telegram-plane"></i>
